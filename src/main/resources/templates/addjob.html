@@ -38,6 +38,11 @@
         <span th:if="${#fields.hasErrors('jobId')}" th:errors="*{jobId}"></span>
     </div>
     <div class="col-3">
+        <label id="labelOrganization">Organization</label>
+        <input type="text" class="form-control" id="textOrganization" th:field="*{organization}" placeholder="Enter organization"/>
+        <span th:if="${#fields.hasErrors('organization')}" th:errors="*{organization}"></span>
+    </div>
+    <div class="col-3">
         <label id="labelLocation">Location</label>
         <input type="text" class="form-control" id="textLocation" th:field="*{location}" placeholder="Enter location"/>
         <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
