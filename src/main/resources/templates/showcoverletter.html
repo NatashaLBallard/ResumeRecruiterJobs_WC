@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display of Cover Letter</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div><br/><br/>
+
+
+<a href="/viewcoverletter">Show All Cover Letters</a><br/><br/>
+
+
+<h2>Cover Letter</h2>
+<span th:text="${coverletter.paragraphIntro}"></span><br/>
+<span th:text="${coverletter.paragraphOne}"></span><br/>
+<span th:text="${coverletter.paragraphTwo}"></span><br/>
+<span th:text="${coverletter.paragraphThree}"></span><br/>
+<span th:text="${coverletter.paragraphOutro}"></span><br/>
+<br/>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Education Page</h2>
+<div th:replace="base :: navlinks"></div><br/><br/>
+
+
+
+<a th:href="@{/addeducation}">Add Education</a>
+
+<h3>Education</h3>
+<table border="1">
+    <tr>
+        <!--Education-->
+        <th>Degree</th>
+        <th>School</th>
+        <th>Year</th>
+    </tr>
+    <tr th:each="education: ${educations}">
+        <!-- Education-->
+        <td th:text="${education.degree}"></td>
+        <td th:text="${education.school}"></td>
+        <td th:text="${education.year}"></td>
+        <td>
+            <a th:href="@{/update-education/{id}(id=${education.id})}">Update</a>
+            <a th:href="@{/detail-education/{id}(id=${education.id})}">Details</a>
+            <a th:href="@{/delete-education/{id}(id=${education.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>

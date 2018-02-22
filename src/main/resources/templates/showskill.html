@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display of Skill</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div><br/><br/>
+
+
+
+<a href="/viewskill">Show All Skills</a><br/><br/>
+
+
+<h2>Skill</h2>
+<span th:text="${skill.singleSkill}"></span><br/>
+<span th:text="${skill.level}"></span><br/>
+<br/>
+
+
+</body>
+</html>

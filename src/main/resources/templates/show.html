@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display of Resume</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<a href="/">Show All Resumes</a><br/>
+
+
+<h2>General</h2>
+<span th:text="${resume.name}"></span><br/>
+<a th:href="@{'mailto:'+${resume.email}}" target="_blank"><span th:text="${resume.email}"></span></a><br/>
+<a th:href="@{'//'+${resume.linkedin}}" target="_blank"><span th:text="${resume.linkedin}"></span></a><br/>
+<a th:href="@{'//'+${resume.github}}" target="_blank"><span th:text="${resume.github}"></span></a><br/>
+<a th:href="@{'//'+${resume.twitter}}" target="_blank"><span th:text="${resume.twitter}"></span></a><br/>
+<br/>
+
+<h2>Education</h2>
+<span th:text="${resume.degree}"></span><br/>
+<span th:text="${resume.school}"></span><br/>
+<span th:text="${resume.year}"></span><br/>
+<br/>
+
+
+
+<h2>Experience</h2>
+<span th:text="${resume.position}"></span><br/>
+<span th:text="${resume.company}"></span><br/>
+<span th:text="${resume.location}"></span><br/>
+<span th:text="${resume.duration}"></span><br/>
+<span th:text="${resume.description}"></span><br/>
+<br/>
+
+
+
+
+
+
+<h2>Skills</h2>
+<span th:text="${resume.skill}"></span><br/>
+<span th:text="${resume.level}"></span><br/>
+<br/>
+<a th:href="@{/delete/{id}(id=${resume.id})}">Delete this course</a>
+</body>
+</html>

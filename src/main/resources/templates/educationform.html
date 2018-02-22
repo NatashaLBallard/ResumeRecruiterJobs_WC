@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Education Form</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Education</h2>
+
+
+<form action="#"
+      th:action="@{/processeducation}"
+      th:object="${education}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+
+
+Degree: <input type="text" th:field="*{degree}" />
+<span th:if="${#fields.hasErrors('degree')}"
+      th:errors="*{degree}"></span><br/>
+
+School: <input type="text" th:field="*{school}" />
+<span th:if="${#fields.hasErrors('school')}"
+      th:errors="*{school}"></span><br/>
+
+Year: <input type="text" th:field="*{year}" />
+<span th:if="${#fields.hasErrors('year')}"
+      th:errors="*{year}"></span><br/>
+<br/>
+
+
+
+<input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

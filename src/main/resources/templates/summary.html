@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Summary</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Summary Page</h2>
+<div th:replace="base :: navlinks"></div><br/><br/>
+
+
+<a th:href="@{/addsummary}">Add Summary</a>
+
+
+<table border="1">
+    <tr>
+        <!--Skills-->
+        <th>Summary</th>
+    </tr>
+    <tr th:each="summary: ${summaries}">
+        <!--Skills-->
+        <td th:text="${summary.singleSummary}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

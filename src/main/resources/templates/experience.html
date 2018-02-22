@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Experience</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Experience Page</h2>
+<div th:replace="base :: navlinks"></div><br/><br/>
+
+
+
+
+<a th:href="@{/addexperience}">Add Experience</a>
+
+
+<h3>Experience</h3>
+<table border="1">
+    <tr>
+        <!--Experience-->
+        <th>Position</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Duration</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="experience: ${experiences}">
+        <!--Experience-->
+        <td th:text="${experience.position}"></td>
+        <td th:text="${experience.company}"></td>
+        <td th:text="${experience.location}"></td>
+        <td th:text="${experience.duration}"></td>
+        <td th:text="${experience.description}"></td>
+    </tr>
+</table>
+
+
+
+
+</body>
+</html>

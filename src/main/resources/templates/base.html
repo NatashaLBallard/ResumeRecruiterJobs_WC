@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+<!--Start of NAVIGATION MENU-->
+<div th:fragment="navbarmenu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/}">
+            <img src="https://www.resumeviking.com/wp-content/uploads/2018/01/ResumeIO-logo.png"
+                 alt="logo pic" height="100px" width="100px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">HOME <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viewsummary}">SUMMARY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viewcontact}">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/vieweducation}">EDUCATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viewskill}">SKILL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viewexperience}">EXPERIENCE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viewreference}">REFERENCE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viewcoverletter}">COVER LETTER</a>
+                </li>
+                <li class ="dropdown">
+                    <a class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false" >VIEW
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/displayresume}">Completed Resume</a></li>
+
+                        <li><a class="dropdown-item" th:href="@{/completecoverletter}">Completed Cover Letter</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--End of NAVIGATION MENU-->
+
+
+
+
+
+<div th:fragment="navlinks">
+    <a href="/">Index</a> |
+    <a href="/viewsummary">Summary</a> |
+    <a href="/viewcontact">Contact</a> |
+    <a href="/vieweducation">Education</a> |
+    <a href="/viewskill">Skills</a> |
+    <a href="/viewexperience">Experience</a> |
+    <a href="/viewreference">References</a> |
+    <a href="/viewcoverletter">Cover Letter</a> |
+
+</div>
+
+
+</body>
+</html>

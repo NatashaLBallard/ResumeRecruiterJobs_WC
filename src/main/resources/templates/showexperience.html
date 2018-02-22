@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display of Experience</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div><br/><br/>
+
+
+<a href="/viewexperience">Show All Experiences</a><br/><br/>
+
+
+<h2>Experience</h2>
+<span th:text="${experience.position}"></span><br/>
+<span th:text="${experience.company}"></span><br/>
+<span th:text="${experience.location}"></span><br/>
+<span th:text="${experience.duration}"></span><br/>
+<span th:text="${experience.description}"></span><br/>
+<br/>
+
+
+</body>
+</html>

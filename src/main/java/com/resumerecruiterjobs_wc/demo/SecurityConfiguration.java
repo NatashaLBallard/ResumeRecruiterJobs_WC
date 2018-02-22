@@ -36,7 +36,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/register").permitAll()
                 .antMatchers("/applicant").access("hasAnyAuthority('APPLICANT','ADMIN')")
                 .antMatchers("/employer").access("hasAnyAuthority('EMPLOYER','ADMIN')")
-                .antMatchers("/recrutier").access("hasAnyAuthority('RECRUITER','ADMIN')")
+                .antMatchers("/recruiter").access("hasAnyAuthority('RECRUITER','ADMIN')")
+
+
+                .antMatchers("/display").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/viewcontact").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/addcontact").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/processcontact").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/detail-contact/{id}").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/update-contact/{id}").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/delete-contact/{id}").access("hasAnyAuthority('APPLICANT','ADMIN')")
+
+
+                .antMatchers("/indexresume").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/contact").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/coverletter").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/education").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/experience").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/reference").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/skill").access("hasAnyAuthority('APPLICANT','ADMIN')")
+                .antMatchers("/summary").access("hasAnyAuthority('APPLICANT','ADMIN')")
+
                 .antMatchers("/admin").access("hasAuthority('ADMIN')")
 
 //                .antMatchers("/admin","/applicant","/employer").access("hasAuthority('ADMIN')")

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cover Letter Form</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Cover Letter</h2>
+
+
+<form action="#"
+      th:action="@{/processcoverletter}"
+      th:object="${coverletter}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+
+
+    Intro Paragraph: <input type="text" th:field="*{paragraphIntro}" />
+    <span th:if="${#fields.hasErrors('paragraphIntro')}"
+          th:errors="*{paragraphIntro}"></span><br/>
+
+    Paragraph One: <input type="text" th:field="*{paragraphOne}" />
+    <span th:if="${#fields.hasErrors('paragraphOne')}"
+          th:errors="*{paragraphOne}"></span><br/>
+
+    Paragraph Two: <input type="text" th:field="*{paragraphTwo}" />
+    <span th:if="${#fields.hasErrors('paragraphTwo')}"
+          th:errors="*{paragraphTwo}"></span><br/>
+
+    Paragraph Three: <input type="text" th:field="*{paragraphThree}" />
+    <span th:if="${#fields.hasErrors('paragraphThree')}"
+          th:errors="*{paragraphThree}"></span><br/>
+
+    Outro Paragraph: <input type="text" th:field="*{paragraphOutro}" />
+    <span th:if="${#fields.hasErrors('paragraphOutro')}"
+          th:errors="*{paragraphOutro}"></span><br/>
+
+
+
+    <br/>
+
+
+
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

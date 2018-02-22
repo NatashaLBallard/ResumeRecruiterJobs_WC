@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Summary</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<!--<p><a th:href="@{/displayresume}">View Entire Resume</a></p>-->
+
+<!--<p><a th:href="@{/addcoverletter}">Add More To Your Cover Letter</a></p>-->
+
+<br/><br/>
+<h3>Contact</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>LinkedIn</th>
+        <th>GitHub</th>
+        <th>Twitter</th>
+        <th>Image</th>
+        <th>Options</th>
+    </tr>
+
+    <tr th:each="contact: ${contacts}">
+        <!--General Education-->
+        <td><img th:src="(${contact.image}==null)?'http://simpleicon.com/wp-content/uploads/user1.png':${contact.image}" alt="logo/face pic" width="100px" height="100px"/></td>
+        <td th:text="${contact.name}"></td>
+        <td th:text="${contact.email}"></td>
+        <td th:text="${contact.linkedin}"></td>
+        <td th:text="${contact.github}"></td>
+        <td th:text="${contact.twitter}"></td>
+        <td>
+            <a th:href="@{/update-contact/{id}(id=${contact.id})}">Update</a>
+            <a th:href="@{/detail-contact/{id}(id=${contact.id})}">Details</a>
+            <a th:href="@{/delete-contact/{id}(id=${contact.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<br/><br/>
+<h3>Summary</h3>
+<table border="1">
+    <tr>
+        <th>Summary</th>
+    </tr>
+    <tr th:each="summary: ${summaries}">
+        <!--General Education-->
+        <td th:text="${summary.singleSummary}"></td>
+        <td>
+            <a th:href="@{/update-summary/{id}(id=${summary.id})}">Update</a>
+            <a th:href="@{/detail-summary/{id}(id=${summary.id})}">Details</a>
+            <a th:href="@{/delete-summary/{id}(id=${summary.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+
+<br/><br/>
+<h3>Education</h3>
+<table border="1">
+    <tr>
+        <!--Education-->
+        <th>Degree</th>
+        <th>School</th>
+        <th>Year</th>
+    </tr>
+    <tr th:each="education: ${educations}">
+        <!-- Education-->
+        <td th:text="${education.degree}"></td>
+        <td th:text="${education.school}"></td>
+        <td th:text="${education.year}"></td>
+        <td>
+            <a th:href="@{/update-education/{id}(id=${education.id})}">Update</a>
+            <a th:href="@{/detail-education/{id}(id=${education.id})}">Details</a>
+            <a th:href="@{/delete-education/{id}(id=${education.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<br/><br/>
+<h3>Experience</h3>
+<table border="1">
+    <tr>
+        <!--Experience-->
+        <th>Position</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Duration</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="experience: ${experiences}">
+        <!--Experience-->
+        <td th:text="${experience.position}"></td>
+        <td th:text="${experience.company}"></td>
+        <td th:text="${experience.location}"></td>
+        <td th:text="${experience.duration}"></td>
+        <td th:text="${experience.description}"></td>
+        <td>
+            <a th:href="@{/update-experience/{id}(id=${experience.id})}">Update</a>
+            <a th:href="@{/detail-experience/{id}(id=${experience.id})}">Details</a>
+            <a th:href="@{/delete-experience/{id}(id=${experience.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<br/><br/>
+<h3>Skill</h3>
+<table border="1">
+    <tr>
+        <!--Skills-->
+        <th>Skill</th>
+        <th>Level</th>
+    </tr>
+    <tr th:each="skill: ${skills}">
+        <!--Skills-->
+        <td th:text="${skill.singleSkill}"></td>
+        <td th:text="${skill.level}"></td>
+        <td>
+            <a th:href="@{/update-skill/{id}(id=${skill.id})}">Update</a>
+            <a th:href="@{/detail-skill/{id}(id=${skill.id})}">Details</a>
+            <a th:href="@{/delete-skill/{id}(id=${skill.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+<br/><br/>
+<h3>Reference</h3>
+<table border="1">
+    <tr>
+        <!--Skills-->
+        <th>Name</th>
+        <th>Position</th>
+        <th>Organization</th>
+        <th>Number</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="reference: ${references}">
+        <!--Skills-->
+        <td th:text="${reference.referenceName}"></td>
+        <td th:text="${reference.referencePosition}"></td>
+        <td th:text="${reference.referenceOrganization}"></td>
+        <td th:text="${reference.referencePhoneNumber}"></td>
+        <td th:text="${reference.referenceEmail}"></td>
+        <td>
+            <a th:href="@{/update-reference/{id}(id=${reference.id})}">Update</a>
+            <a th:href="@{/detail-reference/{id}(id=${reference.id})}">Details</a>
+            <a th:href="@{/delete-reference/{id}(id=${reference.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+<br/><br/>
+<h3>Cover Letters</h3>
+<table border="1">
+    <tr>
+        <th>Intro Paragraph</th>
+        <th>Paragraph One</th>
+        <th>Paragraph Two</th>
+        <th>Paragraph Three</th>
+        <th>Outro Paragraph</th>
+    </tr>
+
+    <tr th:each="coverLetter: ${coverletters}">
+        <!--General Education-->
+        <td th:text="${coverLetter.paragraphIntro}"></td>
+        <td th:text="${coverLetter.paragraphOne}"></td>
+        <td th:text="${coverLetter.paragraphTwo}"></td>
+        <td th:text="${coverLetter.paragraphThree}"></td>
+        <td th:text="${coverLetter.paragraphOutro}"></td>
+        <td>
+            <a th:href="@{/update-coverletter/{id}(id=${coverLetter.id})}">Update</a>
+            <a th:href="@{/detail-coverletter/{id}(id=${coverLetter.id})}">Details</a>
+            <a th:href="@{/delete-coverletter/{id}(id=${coverLetter.id})}">Delete</a>
+        </td>
+    </tr>
+
+</table>
+
+
+
+<!--<br/><br/>-->
+<!--<h3>General</h3>-->
+<!--<table border="1">-->
+    <!--<tr th:each="resume: ${resumes}">-->
+        <!--<td>-->
+            <!--<a th:href="@{/update/{id}(id=${resume.id})}">Update</a>-->
+            <!--<a th:href="@{/detail/{id}(id=${resume.id})}">Details</a>-->
+            <!--<a th:href="@{/delete/{id}(id=${resume.id})}">Delete</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+</body>
+</html>

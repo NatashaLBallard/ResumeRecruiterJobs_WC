@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Skills</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Skill Page</h2>
+<div th:replace="base :: navlinks"></div><br/><br/>
+
+
+
+
+<a th:href="@{/addskill}">Add Skill</a>
+
+<h3>Skill</h3>
+<table border="1">
+    <tr>
+        <!--Skills-->
+        <th>Skill</th>
+        <th>Level</th>
+    </tr>
+    <tr th:each="skill: ${skills}">
+        <!--Skills-->
+        <td th:text="${skill.singleSkill}"></td>
+        <td th:text="${skill.level}"></td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

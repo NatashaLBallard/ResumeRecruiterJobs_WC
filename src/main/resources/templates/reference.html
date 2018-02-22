@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Reference</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Reference Page</h2>
+<div th:replace="base :: navlinks"></div><br/><br/>
+
+
+
+
+<a th:href="@{/addreference}">Add Reference</a>
+
+<br/><br/>
+<h3>References</h3>
+<table border="1">
+    <tr>
+        <!--Reference-->
+        <th>Name</th>
+        <th>Position</th>
+        <th>Organization</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="reference: ${references}">
+        <!--Skills-->
+        <td th:text="${reference.referenceName}"></td>
+        <td th:text="${reference.referencePosition}"></td>
+        <td th:text="${reference.referenceOrganization}"></td>
+        <td th:text="${reference.referencePhoneNumber}"></td>
+        <td th:text="${reference.referenceEmail}"></td>
+        <td>
+            <a th:href="@{/update-reference/{id}(id=${reference.id})}">Update</a>
+            <a th:href="@{/detail-reference/{id}(id=${reference.id})}">Details</a>
+            <a th:href="@{/delete-reference/{id}(id=${reference.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

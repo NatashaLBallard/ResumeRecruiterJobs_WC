@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reference Form</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Reference</h2>
+
+
+<form action="#"
+      th:action="@{/processreference}"
+      th:object="${reference}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+
+
+    Reference Name: <input type="text" th:field="*{referenceName}" />
+    <span th:if="${#fields.hasErrors('referenceName')}"
+          th:errors="*{referenceName}"></span><br/>
+
+    Reference Position: <input type="text" th:field="*{referencePosition}" />
+    <span th:if="${#fields.hasErrors('referencePosition')}"
+          th:errors="*{referencePosition}"></span><br/>
+
+    Reference Organization: <input type="text" th:field="*{referenceOrganization}" />
+    <span th:if="${#fields.hasErrors('referenceOrganization')}"
+          th:errors="*{referenceOrganization}"></span><br/>
+
+    Reference Phone Number: <input type="text" th:field="*{referencePhoneNumber}" />
+    <span th:if="${#fields.hasErrors('referencePhoneNumber')}"
+          th:errors="*{referencePhoneNumber}"></span><br/>
+
+    Reference Email: <input type="text" th:field="*{referenceEmail}" />
+    <span th:if="${#fields.hasErrors('referenceEmail')}"
+          th:errors="*{referenceEmail}"></span><br/>
+
+
+
+
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

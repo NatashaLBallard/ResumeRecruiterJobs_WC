@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Experience Form</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+<h2>Experience</h2>
+
+
+<form action="#"
+      th:action="@{/processexperience}"
+      th:object="${experience}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+
+
+    Position: <input type="text" th:field="*{position}" />
+    <span th:if="${#fields.hasErrors('position')}"
+          th:errors="*{position}"></span><br/>
+
+    Company: <input type="text" th:field="*{company}" />
+    <span th:if="${#fields.hasErrors('company')}"
+          th:errors="*{company}"></span><br/>
+
+    Location: <input type="text" th:field="*{location}" />
+    <span th:if="${#fields.hasErrors('location')}"
+          th:errors="*{location}"></span><br/>
+
+    Duration: <input type="text" th:field="*{duration}" />
+    <span th:if="${#fields.hasErrors('duration')}"
+          th:errors="*{duration}"></span><br/>
+
+    Description: <textarea rows="3" th:field="*{description}" />
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"></span><br/>
+    <br/>
+
+
+
+
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Create A Resume</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<form action="#"
+      th:action="@{/processskill}"
+      th:object="${skill}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+
+
+    <h2>Skill Page</h2>
+    Skill: <input type="text" th:field="*{singleSkill}" />
+    <span th:if="${#fields.hasErrors('singleSkill')}"
+    th:errors="*{singleSkill}"></span><br/>
+
+    <!--Level: <input type="text" th:field="*{level}" />-->
+    <!--<span th:if="${#fields.hasErrors('level')}"-->
+    <!--th:errors="*{level}"></span><br/>-->
+
+    Level:
+    <!--<div class="col-3">-->
+        <!--<label id="Level">Level</label>-->
+        <!--<label class="radio-inline" id="beginner" th:field="*{level}">-->
+            <!--<input type="radio" name="levelRadio" value="beginner"/>Beginner-->
+        <!--</label>-->
+        <!--<label class="radio-inline" id="intermediate" th:field="*{level}">-->
+            <!--<input type="radio" name="levelRadio" value="Intermediate"/>Intermediate-->
+        <!--</label>-->
+        <!--<label class="radio-inline" id="proficient" th:field="*{level}">-->
+            <!--<input type="radio" name="levelRadio" value="Proficient"/>Proficient-->
+        <!--</label>-->
+        <!--<span th:if="${#fields.hasErrors('level')}" th:errors="*{level}"></span>-->
+
+    <!--</div>-->
+
+    <div class="col-3">
+        <label id="level">Level</label>
+        <Select th:field="*{level}">
+            <option value="Beginner" >Beginner</option>
+            <option value="Intermediate" >Intermediate</option>
+            <option value="Proficient" >Proficient</option>
+        </Select>
+        <span th:if="${#fields.hasErrors('level')}" th:errors="*{level}"></span>
+    </div>
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
