@@ -593,7 +593,7 @@ public class MainController {
         return "addjob";
     }
 
-    @PostMapping("/processjobfrom")
+    @PostMapping("/processjobform")
     public String processJobForm(@Valid JobEntry jobEntry, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("Processed");
@@ -611,7 +611,7 @@ public class MainController {
     @RequestMapping("/detail-jobentry/{id}")
     public String showJobEntry(@PathVariable("id") long id, Model model) {
         model.addAttribute("jobentry", jobEntryRepository.findOne(id));
-        return "showjobentry";
+        return "viewjobentry";
     }
 
     @RequestMapping("/update-jobentry/{id}")
