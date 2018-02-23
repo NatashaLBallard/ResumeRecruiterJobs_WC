@@ -596,10 +596,15 @@ public class MainController {
     @PostMapping("/processjobfrom")
     public String processJobForm(@Valid JobEntry jobEntry, BindingResult result) {
         if (result.hasErrors()) {
+            System.out.println("Processed");
+
             return "addjob";
+
+
         }
         jobEntryRepository.save(jobEntry);
-        return "redirect:/viewjobentry";
+        System.out.println("not Processed");
+        return "redirect:/showjobentry";
     }
 
 

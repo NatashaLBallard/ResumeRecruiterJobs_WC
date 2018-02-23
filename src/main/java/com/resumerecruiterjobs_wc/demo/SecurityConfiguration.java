@@ -60,6 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/recruiter").access("hasAnyAuthority('RECRUITER','ADMIN')")
                 .antMatchers("/addjob").access("hasAnyAuthority('RECRUITER','ADMIN')")
+                .antMatchers("/processjobfrom").access("hasAnyAuthority('RECRUITER','ADMIN')")
                 .antMatchers("/showjobentry").access("hasAnyAuthority('RECRUITER','ADMIN')")
                 .antMatchers("/jobentry").access("hasAnyAuthority('RECRUITER','ADMIN')")
 //                .antMatchers("/viewwjobentry").access("hasAnyAuthority('RECRUITER','ADMIN')")
