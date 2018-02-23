@@ -163,6 +163,8 @@ public class MainController {
         model.addAttribute("references", referenceRepository.findAll());
         return "display";
     }
+
+
 //
 //    @RequestMapping("/detail/{id}")
 //    public String showResume(@PathVariable("id") long id, Model model) {
@@ -570,5 +572,57 @@ public class MainController {
 //    public String viewCompleteResume(){
 //        return "completeresume";
 //    }
+
+
+
+
+    //Job Entry Information
+
+    @Autowired
+    JobEntryRepository jobEntryRepository;
+
+    @RequestMapping("/viewjobentry")
+    public String listJobEntry(Model model) {
+        model.addAttribute("jobentries", jobEntryRepository.findAll());
+        return "jobentry";
+    }
+
+    @GetMapping("/addjob")
+    public String jobForm(Model model) {
+        model.addAttribute("jobentry", new JobEntry());
+        return "addjob";
+    }
+
+    @PostMapping("/processjobfrom")
+    public String processJobForm(@Valid JobEntry jobEntry, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addjob";
+        }
+        jobEntryRepository.save(jobEntry);
+        return "redirect:/viewjobentry";
+    }
+
+
+    @RequestMapping("/detail-jobentry/{id}")
+    public String showJobEntry(@PathVariable("id") long id, Model model) {
+        model.addAttribute("jobentry", jobEntryRepository.findOne(id));
+        return "showjobentry";
+    }
+
+    @RequestMapping("/update-jobentry/{id}")
+    public String updateJobEntry(@PathVariable("id") long id, Model model){
+        model.addAttribute("jobentry", jobEntryRepository.findOne(id));
+        return "addjob";
+    }
+
+    @RequestMapping("/delete-jobentry/{id}")
+    public String deleteJobEntry(@PathVariable("id") long id){
+        jobEntryRepository.delete(id);
+        return "redirect:/";
+    }
+
+
+
+
 
 }

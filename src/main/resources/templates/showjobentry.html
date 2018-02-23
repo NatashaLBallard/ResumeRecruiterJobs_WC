@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display of Job Entry</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div><br/><br/>
+
+
+<a href="/viewjobentry">Show Job Entry</a><br/><br/>
+
+
+<h2>Job Entry</h2>
+<span th:text="${jobEntry.title}"></span><br/>
+<span th:text="${jobEntry.jobId}"></span><br/>
+<span th:text="${jobEntry.organization}"></span><br/>
+<span th:text="${jobEntry.location}"></span><br/>
+<span th:text="${jobEntry.description}"></span><br/>
+<span th:text="${jobEntry.duties}"></span><br/>
+<span th:text="${jobEntry.qualifications}"></span><br/>
+<br/>
+
+
+</body>
+</html>

@@ -36,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/register").permitAll()
                 .antMatchers("/applicant").access("hasAnyAuthority('APPLICANT','ADMIN')")
                 .antMatchers("/employer").access("hasAnyAuthority('EMPLOYER','ADMIN')")
-                .antMatchers("/recruiter").access("hasAnyAuthority('RECRUITER','ADMIN')")
+
 
 
                 .antMatchers("/display").access("hasAnyAuthority('APPLICANT','ADMIN')")
@@ -57,12 +57,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/skill").access("hasAnyAuthority('APPLICANT','ADMIN')")
                 .antMatchers("/summary").access("hasAnyAuthority('APPLICANT','ADMIN')")
 
+
+                .antMatchers("/recruiter").access("hasAnyAuthority('RECRUITER','ADMIN')")
                 .antMatchers("/addjob").access("hasAnyAuthority('RECRUITER','ADMIN')")
+                .antMatchers("/showjobentry").access("hasAnyAuthority('RECRUITER','ADMIN')")
+                .antMatchers("/jobentry").access("hasAnyAuthority('RECRUITER','ADMIN')")
+//                .antMatchers("/viewwjobentry").access("hasAnyAuthority('RECRUITER','ADMIN')")
 
 
                 .antMatchers("/admin").access("hasAuthority('ADMIN')")
 
-//                .antMatchers("/admin","/applicant","/employer").access("hasAuthority('ADMIN')")
+//              .antMatchers("/admin","/applicant","/employer").access("hasAuthority('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()

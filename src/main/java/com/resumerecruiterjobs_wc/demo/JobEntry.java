@@ -18,8 +18,6 @@ public class JobEntry {
     private long id;
 
 
-
-    //Experience --------------------------------------------------
     @NotNull
     @Size(min=4)
     private String title;

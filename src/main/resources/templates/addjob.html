@@ -1,120 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <meta charset="UTF-8" />
+    <title>Add Job Form</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-    <ul class="navbar-nav">
-        <li class="nav-item ">
-            <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/add">Add Room</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/list">List Rooms</a>
-        </li>
-    </ul>
-</nav>
+<div th:replace="base :: navbarmenu"></div>
+
+
+
 <form action="#"
-      th:action="@{/process}"
-      th:object="${room}"
-      enctype="multipart/form-data"
+      th:action="@{/processjobform}"
+      th:object="${jobentry}"
       method="post">
-    <div class="col-3">
-        <input type="hidden" th:field="*{id}" />
-    </div>
-    <div class="col-3">
-        <label id="labelTitle">Title</label>
-        <input type="text" class="form-control" id="textTitle" th:field="*{title}" placeholder="Enter job title"/>
-        <span th:if="${#fields.hasErrors('title')}" th:errors="*{address}"></span>
-    </div>
-    <div class="col-3">
-        <label id="labelJobId">Job ID</label>
-        <input type="text" class="form-control" id="textJobId" th:field="*{jobId}" placeholder="Enter Job Id"/>
-        <span th:if="${#fields.hasErrors('jobId')}" th:errors="*{jobId}"></span>
-    </div>
-    <div class="col-3">
-        <label id="labelOrganization">Organization</label>
-        <input type="text" class="form-control" id="textOrganization" th:field="*{organization}" placeholder="Enter organization"/>
-        <span th:if="${#fields.hasErrors('organization')}" th:errors="*{organization}"></span>
-    </div>
-    <div class="col-3">
-        <label id="labelLocation">Location</label>
-        <input type="text" class="form-control" id="textLocation" th:field="*{location}" placeholder="Enter location"/>
-        <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
-    </div>
-    <div class="col-3">
-        <label id="labelDescription">Description</label>
-        <input type="text" class="form-control" id="textDescription" th:field="*{description}" placeholder="Enter description"/>
-        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
-    </div>
-    <div class="col-3">
-        <label id="labelDuties">Duties</label>
-        <input type="text" class="form-control" id="textDuties" th:field="*{duties}" placeholder="Enter duties"/>
-        <span th:if="${#fields.hasErrors('duties')}" th:errors="*{duties}"></span>
-    </div>
-    <div class="col-3">
-        <label id="labelQualifications">Qualifications</label>
-        <input type="text" class="form-control" id="textQualifications" th:field="*{qualifications}" placeholder="Enter qualifications"/>
-        <span th:if="${#fields.hasErrors('qualifications')}" th:errors="*{qualifications}"></span>
-    </div>
+    <input type="hidden" th:field="*{id}" />
+
+    <h2>Add Job</h2>
+    Job Title: <input type="text" th:field="*{title}" />
+    <span th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}"></span><br/>
+
+    Job Id: <input type="text" th:field="*{jobId}" />
+    <span th:if="${#fields.hasErrors('jobId')}"
+          th:errors="*{jobId}"></span><br/>
+
+    Organization: <input type="text" th:field="*{organization}" />
+    <span th:if="${#fields.hasErrors('organization')}"
+          th:errors="*{organization}"></span><br/>
+
+    Location: <input type="text" th:field="*{location}" />
+    <span th:if="${#fields.hasErrors('location')}"
+          th:errors="*{location}"></span><br/>
+
+    Description: <input type="textarea" th:field="*{description}" />
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"></span><br/>
+
+    Duties: <input type="textarea" th:field="*{duties}" />
+    <span th:if="${#fields.hasErrors('duties')}"
+          th:errors="*{duties}"></span><br/>
     <br/>
-    <div class="col-3">
-        <label id="labelWifi">Wifi</label>
-        <label class="radio-inline" th:field="*{wifi}" id="radioWifiYes" >
-            <input type="radio"  name="wifiRadio" value="Yes"/>Yes
-        </label>
-        <label class="radio-inline" th:field="*{wifi}" id="radioWifiNo">
-            <input type="radio"  name="wifiRadio" value="No"/>No
-        </label>
-        <span th:if="${#fields.hasErrors('wifi')}" th:errors="*{wifi}"></span>
 
-    </div>
-
-    <div class="col-3">
-        <label id="labelCable">Cable</label>
-        <Select th:field="*{cable}">
-            <option value="null" >    </option>
-            <option value="none" >None</option>
-            <option value="basic" >Basic</option>
-            <option value="premium" >Premium</option>
-        </Select>
-        <span th:if="${#fields.hasErrors('cable')}" th:errors="*{cable}"></span>
-    </div>
-
-    <div class="col-3">
-        <label id="labelPrivateBathroom">Private bath room</label>
-        <label class="radio-inline" id="radioPrivateBathroomYes" th:field="*{privateBathroom}">
-            <input type="radio" name="bathRoomRadio" value="Yes"/>Yes
-        </label>
-        <label class="radio-inline" id="radioPrivateBathroomNo" th:field="*{privateBathroom}">
-            <input type="radio" name="bathRoomRadio" value="No"/>No
-        </label>
-        <span th:if="${#fields.hasErrors('privateBathroom')}" th:errors="*{privateBathroom}"></span>
-
-    </div>
-    <div class="col-3">
-        <label id="labelListType">Listing type</label>
-        <Select th:field="*{listType}">
-            <option value="Public" >Public</option>
-            <option value="Private" >Private</option>
-        </Select>
-        <span th:if="${#fields.hasErrors('listType')}" th:errors="*{listType}"></span>
-    </div>
-
-    <div class="col-3">
-        <label id="labelImage">Image</label>
-        <input type="file" name="file" />
-    </div>
+    Qualifications: <input type="textarea" th:field="*{qualifications}" />
+    <span th:if="${#fields.hasErrors('qualifications')}"
+          th:errors="*{qualifications}"></span><br/>
     <br/>
-    <div class="col-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
 
+    <input type="submit" value="Submit" />
 </form>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+
+
+</head>
+<body>
+<div th:replace="base :: navbarmenu"></div>
+
+
+<h2>Job Entry Page</h2>
+
+<div th:replace="base :: navlinks"></div><br/><br/>
+
+
+<a th:href="@{/addjob}">Add Job Entry</a>
+
+
+<table border="1">
+    <tr>
+        <th>Job Title</th>
+        <th>Id</th>
+        <th>Organization</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Duties</th>
+        <th>Qualifications</th>
+    </tr>
+
+    <tr th:each="jobEntry: ${jobentries}">
+        <!--General Education-->
+        <td th:text="${jobEntry.title}"></td>
+        <td th:text="${jobEntry.jobId}"></td>
+        <td th:text="${jobEntry.organization}"></td>
+        <td th:text="${jobEntry.location}"></td>
+        <td th:text="${jobEntry.description}"></td>
+        <td th:text="${jobEntry.duties}"></td>
+        <td th:text="${jobEntry.qualifications}"></td>
+        <td>
+            <a th:href="@{/update-jobEntry/{id}(id=${jobEntry.id})}">Update</a>
+            <a th:href="@{/detail-jobEntry/{id}(id=${jobEntry.id})}">Details</a>
+            <a th:href="@{/delete-jobEntry/{id}(id=${jobEntry.id})}">Delete</a>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
